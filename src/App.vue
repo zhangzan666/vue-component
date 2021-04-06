@@ -1,17 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <tree-com :staffArr='staffArr'/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+  import TreeCom from './components/TreeCom'
 export default {
   name: 'App',
+  data() {
+    return {
+      staffArr: [
+        {name: '1',class: 1,children: [
+          {name:'1-1', children: [
+            {name:'1-1-1'},
+            {name:'1-1-2'},
+            {name:'1-1-3',children: [
+              {name: '1-1-3-1'},
+              {name: '1-1-3-2'},
+            ]},
+          ]},
+          {name: '1-2', children: [
+            {name:'1-2-1'},
+            {name:'1-2-2'},
+            {name:'1-2-3'},
+            {name:'1-2-4'},
+          ]},
+          {name: '1-3',children: [
+            {name: '1-3-1'},
+            {name: '1-3-2'},
+            {name: '1-3-3',children: [
+              {name: '1-3-3-1'},
+            ]}
+          ]},
+        ]}
+      ]
+    }
+  },
   components: {
-    HelloWorld
+    TreeCom
   }
 }
 </script>
